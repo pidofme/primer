@@ -16,11 +16,19 @@
 
       {{ content }}
 
-      {% if site.github.private != true and site.github.license %}
-      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
-        {% github_edit_link "Improve this page" %}.
+      <div class="footer border-top border-gray-light d-flex flex-justify-between mt-5 pt-3 text-gray">
+        <ul class="list-style-none pl-0">
+           <li>© 2015 - 2018 {{ site.author }} </li>
+           <li>Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="external" target="_blank">CC BY-NC-SA 4.0</a>.</li>
+           {% if page.last_updated %} <li>Page last updated: {{page.last_updated}}</li> {% endif %}
+           <li>Site last generated: {{ site.time | date: "%b %-d, %Y"  }}</li>
+    	</ul>
+        {% if site.github.private != true and site.github.license %}
+        <ul class="list-style-none pl-0">
+          <li>{% github_edit_link "Improve this page" %}.</li>
+        </ul>
+        {% endif %}
       </div>
-      {% endif %}
     </div>
     <script src="{{ "assets/javascript/anchor-js/anchor.min.js" | relative_url }}"></script>
     <script>anchors.add();</script>
